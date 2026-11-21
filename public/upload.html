@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Share your photos</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <main class="wrap">
+    <h1>Share your photos</h1>
+    <form id="form" novalidate>
+      <label>Your name
+        <input type="text" id="name" name="name" maxlength="80" autocomplete="name" required>
+      </label>
+      <label>Photos
+        <input type="file" id="photos" name="photos" accept="image/jpeg,image/png,image/webp" multiple required>
+        <span class="hint" id="limits"></span>
+      </label>
+      <div class="previews" id="previews"></div>
+      <label class="consent">
+        <input type="checkbox" id="consent" name="consent">
+        <span>I consent to public display</span>
+      </label>
+      <div id="status" role="status" aria-live="polite"></div>
+      <button type="submit" id="submit">Upload</button>
+    </form>
+  </main>
+  <script src="/js/upload.js"></script>
+</body>
+</html>
