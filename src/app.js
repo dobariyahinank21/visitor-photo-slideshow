@@ -34,7 +34,8 @@ function createApp({ repo, io = null, uploadDir = config.uploadDir }) {
   app.get('/api/photos', (_req, res) => res.json(repo.listAllPhotos()));
 
   app.post('/api/upload', upload.array('photos', config.limits.maxFilesPerBatch + 1), (req, res) => {
-    const result = validateSubmission({ name: req.body.name, consent: req.body.consent, files: req.files });
+    const body = req.body || {}; // req.body is undefined for non-multipart requests
+    const result = validateSubmission({ name: body.name, consent: body.consent, files: req.files });
     if (!result.ok) return res.status(400).json({ errors: result.errors });
 
     // Write validated files with random names (never trust the client's filename).
