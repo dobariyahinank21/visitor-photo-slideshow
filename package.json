@@ -1,0 +1,17 @@
+{
+  "name": "visitor-photo-slideshow",
+  "version": "1.0.0",
+  "description": "Visitors upload photos; a TV display plays them as a live slideshow.",
+  "main": "src/server.js",
+  "engines": { "node": ">=22.13" },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env src/server.js",
+    "test": "node --test tests/"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "multer": "^1.4.5-lts.1",
+    "socket.io": "^4.8.1"
+  },
+  "license": "MIT"
+}
